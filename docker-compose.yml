@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+    container_name: "mongo-local"
+  web:
+#    build:
+#      context: .
+#      dockerfile: ./Dockerfile
+#      args:
+#        - MONGO_IP=192.168.1.55
+    image: psih747/iptest:0.2
+    environment:
+      - mongoip=192.168.1.55
+    ports:
+        - "80:8080"
